@@ -13,6 +13,7 @@
 #import "Masonry.h"
 #import "Data.h"
 #import "NetworkInfo.h"
+#import "DisplayViewController.h"
 
 @interface ViewController : UIViewController
 

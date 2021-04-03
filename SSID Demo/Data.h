@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SingleItem : NSObject
+@interface SingleItem : NSObject <NSSecureCoding>
 
 @property (strong, nonatomic) NSString* ssid;
 @property (strong, nonatomic) NSString* bssid;
@@ -18,12 +18,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface Data : NSObject
+@interface Data : NSObject <NSSecureCoding>
 
-@property (nonatomic, assign) int floorNum;
+@property (nonatomic, strong) NSString* floorMsg;
 @property (nonatomic, strong) NSMutableArray<SingleItem*>* items;
+@property (class) NSURL* archiveURL;
 
-- (instancetype)initWithFloor:(int)floorNum items:(NSMutableArray<SingleItem*>*) items;
+- (instancetype)initWithFloor:(NSString*)floorMsg items:(NSMutableArray<SingleItem*>*) items;
++ (void)saveData:(NSMutableArray<Data*>*)allData;
++ (NSMutableArray<Data*>*)loadData;
 
 @end
 

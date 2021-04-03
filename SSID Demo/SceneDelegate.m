@@ -17,6 +17,7 @@
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     ViewController* vc = [[ViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController: vc];
+    [_window setOverrideUserInterfaceStyle:UIUserInterfaceStyleDark];
     [_window setRootViewController: nav];
 }
 

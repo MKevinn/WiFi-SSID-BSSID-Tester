@@ -16,6 +16,7 @@
 		0ACA7522261595F700A1A5FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ACA7521261595F700A1A5FD /* Assets.xcassets */; };
 		0ACA7525261595F700A1A5FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACA7523261595F700A1A5FD /* LaunchScreen.storyboard */; };
 		0ACA7528261595F700A1A5FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA7527261595F700A1A5FD /* main.m */; };
+		0AD6B9812616F20F00EAB63C /* DisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6B9802616F20F00EAB63C /* DisplayViewController.m */; };
 		142F7C3C9A5266392A2333B3 /* Pods_SSID_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237BFE6A6492E0F51688426C /* Pods_SSID_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,8 @@
 		0ACA7526261595F700A1A5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ACA7527261595F700A1A5FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0ACA75302615963F00A1A5FD /* SSID Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SSID Demo.entitlements"; sourceTree = "<group>"; };
+		0AD6B97F2616F20F00EAB63C /* DisplayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayViewController.h; sourceTree = "<group>"; };
+		0AD6B9802616F20F00EAB63C /* DisplayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayViewController.m; sourceTree = "<group>"; };
 		237BFE6A6492E0F51688426C /* Pods_SSID_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSID_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		644152AEF711EE450304CBF2 /* Pods-SSID Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSID Demo.release.xcconfig"; path = "Target Support Files/Pods-SSID Demo/Pods-SSID Demo.release.xcconfig"; sourceTree = "<group>"; };
 		E05CDDAE82F6D13EA7F7B5AC /* Pods-SSID Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSID Demo.debug.xcconfig"; path = "Target Support Files/Pods-SSID Demo/Pods-SSID Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				0A8D6BA62615E7ED00F538C6 /* Data.m */,
 				0ACA751B261595F600A1A5FD /* ViewController.h */,
 				0ACA751C261595F600A1A5FD /* ViewController.m */,
+				0AD6B97F2616F20F00EAB63C /* DisplayViewController.h */,
+				0AD6B9802616F20F00EAB63C /* DisplayViewController.m */,
 				0ACA751E261595F600A1A5FD /* Main.storyboard */,
 				0ACA7521261595F700A1A5FD /* Assets.xcassets */,
 				0ACA7523261595F700A1A5FD /* LaunchScreen.storyboard */,
@@ -229,6 +234,7 @@
 				0ACA751D261595F600A1A5FD /* ViewController.m in Sources */,
 				0A8D6BAB2615EAD000F538C6 /* NetworkInfo.m in Sources */,
 				0ACA7517261595F600A1A5FD /* AppDelegate.m in Sources */,
+				0AD6B9812616F20F00EAB63C /* DisplayViewController.m in Sources */,
 				0ACA7528261595F700A1A5FD /* main.m in Sources */,
 				0ACA751A261595F600A1A5FD /* SceneDelegate.m in Sources */,
 			);
@@ -378,7 +384,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7L4R4H24A;
 				INFOPLIST_FILE = "SSID Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -399,7 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W7L4R4H24A;
 				INFOPLIST_FILE = "SSID Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
