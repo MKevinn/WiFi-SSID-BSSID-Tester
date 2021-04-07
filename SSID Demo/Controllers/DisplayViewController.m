@@ -38,6 +38,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (void)initUI {
+    self.navigationController.navigationBar.prefersLargeTitles = true;
     self.view.backgroundColor = UIColor.blackColor;
     self.title = @"Display WiFi Info";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"xmark"] style:UIBarButtonItemStyleDone target:self action:@selector(dismissIt)];
@@ -67,6 +68,16 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [@"楼层 " stringByAppendingFormat:@"%@", _allData[section].floorMsg];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView* v = UIView.new;
+    v.backgroundColor = UIColor.clearColor;
+    return v;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {

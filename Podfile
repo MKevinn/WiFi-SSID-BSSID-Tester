@@ -8,5 +8,6 @@ target 'SSID Demo' do
   # Pods for SSID Demo
 
 pod 'Masonry'
+pod 'Toast', '~> 4.0.0'
 
 end

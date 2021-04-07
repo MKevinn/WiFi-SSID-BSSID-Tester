@@ -57,6 +57,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A6648B9261D9E8600B5DCB0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0A8D6BA92615EAD000F538C6 /* NetworkInfo.h */,
+				0A8D6BAA2615EAD000F538C6 /* NetworkInfo.m */,
+				0A8D6BA52615E7ED00F538C6 /* Data.h */,
+				0A8D6BA62615E7ED00F538C6 /* Data.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0A6648BB261D9E9300B5DCB0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0ACA751B261595F600A1A5FD /* ViewController.h */,
+				0ACA751C261595F600A1A5FD /* ViewController.m */,
+				0AD6B97F2616F20F00EAB63C /* DisplayViewController.h */,
+				0AD6B9802616F20F00EAB63C /* DisplayViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0A6648BD261D9E9E00B5DCB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0ACA751E261595F600A1A5FD /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0ACA7509261595F600A1A5FD = {
 			isa = PBXGroup;
 			children = (
@@ -83,15 +113,9 @@
 				0ACA7516261595F600A1A5FD /* AppDelegate.m */,
 				0ACA7518261595F600A1A5FD /* SceneDelegate.h */,
 				0ACA7519261595F600A1A5FD /* SceneDelegate.m */,
-				0A8D6BA92615EAD000F538C6 /* NetworkInfo.h */,
-				0A8D6BAA2615EAD000F538C6 /* NetworkInfo.m */,
-				0A8D6BA52615E7ED00F538C6 /* Data.h */,
-				0A8D6BA62615E7ED00F538C6 /* Data.m */,
-				0ACA751B261595F600A1A5FD /* ViewController.h */,
-				0ACA751C261595F600A1A5FD /* ViewController.m */,
-				0AD6B97F2616F20F00EAB63C /* DisplayViewController.h */,
-				0AD6B9802616F20F00EAB63C /* DisplayViewController.m */,
-				0ACA751E261595F600A1A5FD /* Main.storyboard */,
+				0A6648B9261D9E8600B5DCB0 /* Models */,
+				0A6648BB261D9E9300B5DCB0 /* Controllers */,
+				0A6648BD261D9E9E00B5DCB0 /* Views */,
 				0ACA7521261595F700A1A5FD /* Assets.xcassets */,
 				0ACA7523261595F700A1A5FD /* LaunchScreen.storyboard */,
 				0ACA7526261595F700A1A5FD /* Info.plist */,

@@ -14,6 +14,7 @@
 #import "Data.h"
 #import "NetworkInfo.h"
 #import "DisplayViewController.h"
+#import "UIView+Toast.h"
 
 @interface ViewController : UIViewController
 
