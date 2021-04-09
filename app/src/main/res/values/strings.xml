@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WiFi Tester</string>
+    <string name="update_button">获取</string>
+    <string name="floor_label">楼层</string>
+    <string name="placeholder">i.e. C3-15F</string>
+
+    <string name="ssid_label">SSID: N/A</string>
+    <string name="bssid_label">BSSID: N/A</string>
+</resources>
