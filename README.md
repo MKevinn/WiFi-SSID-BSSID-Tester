@@ -1,1 +1,1 @@
-A tool for testing with WiFi connection, SSID, and BSSID.
+A multi-versioned internal tool for testing WiFi connection, SSID, and BSSID.
