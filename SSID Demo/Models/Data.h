@@ -21,10 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Data : NSObject <NSSecureCoding>
 
 @property (nonatomic, strong) NSString* floorMsg;
-@property (nonatomic, strong) NSMutableArray<SingleItem*>* items;
+@property (nonatomic, strong) SingleItem* item;
 @property (class) NSURL* archiveURL;
 
-- (instancetype)initWithFloor:(NSString*)floorMsg items:(NSMutableArray<SingleItem*>*) items;
+- (instancetype)initWithFloor:(NSString*)floorMsg item:(SingleItem*) item;
 + (void)saveData:(NSMutableArray<Data*>*)allData;
 + (NSMutableArray<Data*>*)loadData;
 

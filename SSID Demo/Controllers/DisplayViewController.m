@@ -29,12 +29,14 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (void)presentActivityVC {
     NSMutableString* msg = NSMutableString.new;
     for (Data* floor in _allData) {
-        for (SingleItem* item in floor.items) {
-            [msg appendString: [NSString stringWithFormat:@"%@,%@,%@\n", floor.floorMsg,item.ssid,item.bssid]];
-        }
+        [msg appendString: [NSString stringWithFormat:@"%@,%@,%@\n", floor.floorMsg,floor.item.ssid,floor.item.bssid]];
     }
     UIActivityViewController* actVC = [[UIActivityViewController alloc] initWithActivityItems:@[msg] applicationActivities:nil];
     [self presentViewController:actVC animated:true completion:nil];
+}
+
+- (void)setShare {
+    [self.navigationItem.rightBarButtonItem setEnabled:_allData && _allData.count>0];
 }
 
 - (void)initUI {
@@ -43,6 +45,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
     self.title = @"Display WiFi Info";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"xmark"] style:UIBarButtonItemStyleDone target:self action:@selector(dismissIt)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"arrowshape.turn.up.right"] style:UIBarButtonItemStyleDone target:self action:@selector(presentActivityVC)];
+    [self setShare];
     
     _tb = UITableView.new;
     [_tb registerClass:UITableViewCell.class forCellReuseIdentifier:cellIdentifier];
@@ -63,7 +66,7 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _allData[section].items.count;
+    return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -83,8 +86,8 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     cell.contentView.backgroundColor = UIColor.systemGroupedBackgroundColor;
-    cell.textLabel.text = _allData[indexPath.section].items[indexPath.row].bssid;
-    cell.detailTextLabel.text = _allData[indexPath.section].items[indexPath.row].ssid;
+    cell.textLabel.text = _allData[indexPath.section].item.bssid;
+    cell.detailTextLabel.text = _allData[indexPath.section].item.ssid;
     cell.detailTextLabel.textColor = UIColor.lightGrayColor;
     return cell;
 }
@@ -95,14 +98,10 @@ static NSString *const cellIdentifier = @"cellIdentifier";
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_allData[indexPath.section].items removeObjectAtIndex:indexPath.row];
-        if (_allData[indexPath.section].items.count == 0) {
-            [_allData removeObjectAtIndex:indexPath.section];
-            [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
-        } else {
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }
+        [_allData removeObjectAtIndex:indexPath.section];
+        [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
         [Data saveData:_allData];
+        [self setShare];
     }
 }
 

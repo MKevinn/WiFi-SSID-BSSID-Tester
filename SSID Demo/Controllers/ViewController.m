@@ -61,20 +61,11 @@
         Data* floorDataToRemove;
         for (Data* floorData in _allData) {
             if ([floorData.floorMsg isEqualToString:_floorTF.text]) {
-                SingleItem* newItem = [[SingleItem alloc] initWithSsid:_currentNetworkInfos.firstObject.ssid bssid:_currentNetworkInfos.firstObject.bssid];
-                for (SingleItem* item in floorData.items) {
-                    if ([item.bssid isEqualToString:newItem.bssid] && [item.ssid isEqualToString:newItem.ssid]) {
-                        [self.view makeToast:[NSString stringWithFormat:@"楼层 %@ 中已存在该BSSID，已去重",floorData.floorMsg]
-                         duration:2 position:CSToastPositionBottom];
-                        return;
-                    }
-                }
-                
+                SingleItem* newItem = [[SingleItem alloc] initWithSsid:_currentNetworkInfos.firstObject.ssid bssid:_currentNetworkInfos.firstObject.bssid];                
                 [self.view makeToast:[NSString stringWithFormat:@"楼层 %@ 已存在，已使用最新数据覆盖",floorData.floorMsg]
                  duration:2 position:CSToastPositionBottom];
                 floorDataToRemove = floorData;
-                Data* newFloorData = [[Data alloc] initWithFloor:_floorTF.text items: [[NSMutableArray<SingleItem*> alloc] init]];
-                [newFloorData.items addObject:newItem];
+                Data* newFloorData = [[Data alloc] initWithFloor:floorData.floorMsg item:newItem];
                 [_allData addObject:newFloorData];
                 exists = true;
                 break;
@@ -84,8 +75,7 @@
         if (floorDataToRemove) {
             [_allData removeObject:floorDataToRemove];
         } else if (!exists) {
-            Data* floorData = [[Data alloc] initWithFloor:_floorTF.text items: [[NSMutableArray<SingleItem*> alloc] init]];
-            [floorData.items addObject:[[SingleItem alloc] initWithSsid:_currentNetworkInfos.firstObject.ssid bssid:_currentNetworkInfos.firstObject.bssid]];
+            Data* floorData = [[Data alloc] initWithFloor:_floorTF.text item:[[SingleItem alloc] initWithSsid:_currentNetworkInfos.firstObject.ssid bssid:_currentNetworkInfos.firstObject.bssid]];
             [_allData addObject:floorData];
         }
         [Data saveData:_allData];

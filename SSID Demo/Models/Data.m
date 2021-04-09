@@ -50,13 +50,13 @@ static NSURL* _archiveURL;
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:_floorMsg forKey:@"floorMsg"];
-    [coder encodeObject:_items forKey:@"items"];
+    [coder encodeObject:_item forKey:@"item"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
         _floorMsg = [coder decodeObjectForKey:@"floorMsg"];
-        _items = [coder decodeObjectForKey:@"items"];
+        _item = [coder decodeObjectForKey:@"item"];
     }
     return self;
 }
@@ -65,10 +65,10 @@ static NSURL* _archiveURL;
     return true;
 }
 
-- (instancetype)initWithFloor:(NSString*)floorMsg items:(NSMutableArray<SingleItem *> *)items {
+- (instancetype)initWithFloor:(NSString*)floorMsg item:(SingleItem*)item {
     if (self = [super init]) {
         _floorMsg = floorMsg;
-        _items = [NSMutableArray arrayWithArray:items];
+        _item = item;
     }
     return self;
 }
