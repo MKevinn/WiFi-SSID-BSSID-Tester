@@ -130,7 +130,7 @@
 
 - (void)initUI {
     self.view.backgroundColor = UIColor.blackColor;
-    self.title = @"SSID Tester";
+    self.title = @"WiFi Tester";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage systemImageNamed:@"tablecells"] style:UIBarButtonItemStylePlain target:self action:@selector(presentDisplayVC)];
     
     _updateBt = [UIButton buttonWithType:UIButtonTypeSystem];
